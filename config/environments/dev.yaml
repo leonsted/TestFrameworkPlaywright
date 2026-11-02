@@ -1,0 +1,45 @@
+# Учебное окружение. Сайт ниже публичный, логин и пароль не секрет.
+# Своё приложение: поменяйте baseUrl и раздел users.
+
+web:
+  baseUrl: https://www.saucedemo.com
+
+mobileWeb:
+  baseUrl: https://www.saucedemo.com
+
+mobile:
+  # true — WebdriverIO сам поднимет Appium. false — Appium уже запущен по appiumUrl.
+  startAppium: false
+  selectors:
+    username: username
+    password: password
+    loginButton: login
+  android:
+    deviceName: Android Emulator
+    appPackage: com.example.app
+    appActivity: .MainActivity
+    app: ""
+    appiumUrl: http://127.0.0.1:4723/
+  ios:
+    deviceName: iPhone 16
+    platformVersion: "18.0"
+    bundleId: com.example.app
+    app: ""
+    appiumUrl: http://127.0.0.1:4723/
+
+users:
+  standard:
+    username: standard_user
+    password: secret_sauce
+
+# 1С выключена, чтобы обычные тесты сайта не требовали базу.
+# Как включить — в stage.yaml и в README.
+onec:
+  mode: off
+
+testmo:
+  enabled: false
+  url: https://ВАША-КОМПАНИЯ.testmo.net
+  projectId: 1
+  tokenEnv: TESTMO_TOKEN
+  source: ui

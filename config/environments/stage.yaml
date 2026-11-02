@@ -1,0 +1,65 @@
+# Предпрод. Секреты только в .env, здесь имена переменных.
+
+web:
+  baseUrl: https://stage.example.com
+
+mobileWeb:
+  baseUrl: https://stage.example.com
+
+mobile:
+  startAppium: false
+  selectors:
+    username: username
+    password: password
+    loginButton: login
+  android:
+    deviceName: Android Emulator
+    appPackage: com.example.app.stage
+    appActivity: .MainActivity
+    app: ""
+    appiumUrl: http://127.0.0.1:4723/
+  ios:
+    deviceName: iPhone 16
+    platformVersion: "18.0"
+    bundleId: com.example.app.stage
+    app: ""
+    appiumUrl: http://127.0.0.1:4723/
+
+users:
+  standard:
+    usernameEnv: APP_USER
+    passwordEnv: APP_PASSWORD
+
+# Режим http — рекомендуемый. 1С должна быть опубликована (OData).
+onec:
+  mode: http
+  baseUrl: http://localhost/trade/odata/standard.odata
+  httpServiceBaseUrl: ""
+  usernameEnv: ONEC_USER
+  passwordEnv: ONEC_PASSWORD
+  timeoutMs: 30000
+  catalogs:
+    counterparty: Catalog_Контрагенты
+
+# Пример режима sql вместо блока выше. Раскомментировать и удалить http-блок.
+# onec:
+#   mode: sql
+#   server: localhost
+#   port: 1433
+#   database: trade
+#   usernameEnv: ONEC_SQL_USER
+#   passwordEnv: ONEC_SQL_PASSWORD
+#   encrypt: false
+#   trustServerCertificate: true
+#   queries:
+#     counterpartyByName: >
+#       SELECT TOP 1 _Description AS name
+#       FROM dbo._ReferenceXXXX
+#       WHERE _Description = @name
+
+testmo:
+  enabled: false
+  url: https://ВАША-КОМПАНИЯ.testmo.net
+  projectId: 1
+  tokenEnv: TESTMO_TOKEN
+  source: ui

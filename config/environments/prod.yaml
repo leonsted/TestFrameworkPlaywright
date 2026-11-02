@@ -1,0 +1,48 @@
+# Боевое окружение. Имеет смысл гонять только чтение, без создания данных.
+
+web:
+  baseUrl: https://example.com
+
+mobileWeb:
+  baseUrl: https://example.com
+
+mobile:
+  startAppium: false
+  selectors:
+    username: username
+    password: password
+    loginButton: login
+  android:
+    deviceName: Android Emulator
+    appPackage: com.example.app
+    appActivity: .MainActivity
+    app: ""
+    appiumUrl: http://127.0.0.1:4723/
+  ios:
+    deviceName: iPhone 16
+    platformVersion: "18.0"
+    bundleId: com.example.app
+    app: ""
+    appiumUrl: http://127.0.0.1:4723/
+
+users:
+  standard:
+    usernameEnv: APP_USER
+    passwordEnv: APP_PASSWORD
+
+onec:
+  mode: http
+  baseUrlEnv: ONEC_URL
+  httpServiceBaseUrl: ""
+  usernameEnv: ONEC_USER
+  passwordEnv: ONEC_PASSWORD
+  timeoutMs: 30000
+  catalogs:
+    counterparty: Catalog_Контрагенты
+
+testmo:
+  enabled: false
+  url: https://ВАША-КОМПАНИЯ.testmo.net
+  projectId: 1
+  tokenEnv: TESTMO_TOKEN
+  source: ui
